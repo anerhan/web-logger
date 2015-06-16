@@ -3,6 +3,9 @@
 require 'bundler'
 require 'bundler/setup'
 require 'sinatra/base'
+require 'sinatra/asset_pipeline'
+# require 'sprockets'
+# require 'sprockets-helpers'
 
 # Require gems
 Bundler.require :default, (ENV['RACK_ENV'] || :development).to_sym
@@ -25,6 +28,17 @@ class App < Sinatra::Base
   set :root,        File.dirname(__FILE__)
   set :environment, Sinatra::Application.environment
   set :limit_on_page, 50
+  set :views, Proc.new { File.join(root, "app/views") }
+
+  set :assets_precompile, %w(application.js application.css *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
+  set :assets_prefix, %w(app/assets app/vendor/assets)
+  set :assets_host, '<id>.example.org'
+  # set :assets_protocol, :http
+  set :assets_css_compressor, :sass
+  set :assets_js_compressor, :uglifier
+  set :digest_assets, false
+  register Sinatra::AssetPipeline
+
 
   configure do
     enable :cross_origin
@@ -39,13 +53,17 @@ class App < Sinatra::Base
     Dir[File.join(settings.root, "config/initializers/*.rb")].each { |file| load file }
   end
 
+  Dir[File.join(settings.root, "app/{controllers}/*.rb")].each do |file|
+    register File.basename(file, '.rb').classify.constantize
+  end
+
   namespace "/api/v1" do
     helpers do
       Dir[File.join(settings.root, "app/{helpers}/*.rb")].each do  |file|
         include File.basename(file, '.rb').classify.constantize
       end
     end
-    Dir[File.join(settings.root, "app/{before_filters,controllers}/*.rb")].each do |file|
+    Dir[File.join(settings.root, "app/{before_filters,controllers/api/v1}/*.rb")].each do |file|
       register File.basename(file, '.rb').classify.constantize
     end
   end

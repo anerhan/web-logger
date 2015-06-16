@@ -1,5 +1,6 @@
 config/mongoid.yml
 config/settings.yml
+public/assets
 *swp
 *swo
 doc/*

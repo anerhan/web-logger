@@ -26,3 +26,11 @@
 127.0.0.1 - - [16/Jun/2015:19:17:25 +0300] "POST /api/v1/access_tokens.json " 500 116 0.0952
 127.0.0.1 - - [16/Jun/2015:19:17:25 +0300] "GET /api/v1/access_tokens/TmpTokenHex.json " 200 329 0.0037
 127.0.0.1 - - [16/Jun/2015:19:17:25 +0300] "GET /api/v1/access_tokens/invalid_tmp_token.json " 404 68 0.0012
+127.0.0.1 - - [16/Jun/2015:19:20:59 +0300] "POST /api/v1/access_tokens.json " 201 - 0.0653
+127.0.0.1 - - [16/Jun/2015:19:20:59 +0300] "POST /api/v1/access_tokens.json " 500 116 0.0937
+127.0.0.1 - - [16/Jun/2015:19:20:59 +0300] "GET /api/v1/access_tokens/TmpTokenHex.json " 200 329 0.0031
+127.0.0.1 - - [16/Jun/2015:19:20:59 +0300] "GET /api/v1/access_tokens/invalid_tmp_token.json " 404 68 0.0012
+127.0.0.1 - - [16/Jun/2015:19:23:08 +0300] "POST /api/v1/access_tokens.json " 201 - 0.0682
+127.0.0.1 - - [16/Jun/2015:19:23:08 +0300] "POST /api/v1/access_tokens.json " 500 116 0.0936
+127.0.0.1 - - [16/Jun/2015:19:23:08 +0300] "GET /api/v1/access_tokens/TmpTokenHex.json " 200 329 0.0031
+127.0.0.1 - - [16/Jun/2015:19:23:08 +0300] "GET /api/v1/access_tokens/invalid_tmp_token.json " 404 68 0.0011
