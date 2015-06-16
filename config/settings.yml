@@ -1,0 +1,13 @@
+redis:
+  location: '127.0.0.1:6379/<%= Sinatra::Application.environment %>'
+  namespace: 'namespace'
+mongoid:
+  sessions:
+    default:
+      database: web-logger_<%= Sinatra::Application.environment %>
+      hosts:
+        - localhost:27017
+  options:
+    raise_not_found_error: false
+auth:
+  token_expired_period: <%= 1.month %>

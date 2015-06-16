@@ -1,0 +1,17 @@
+config/mongoid.yml
+config/settings.yml
+*swp
+*swo
+doc/*
+log/*.log
+.bundle/install.log
+.DS_Store
+.idea/
+.rvmrc
+.ruby-version
+.ruby-gemset
+tmp/*
+dump.rdb
+Guardfile
+.gemtags
+.tags
