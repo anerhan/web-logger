@@ -39,13 +39,15 @@ class App < Sinatra::Base
     Dir[File.join(settings.root, "config/initializers/*.rb")].each { |file| load file }
   end
 
-  helpers do
-    Dir[File.join(settings.root, "app/{helpers}/*.rb")].each do  |file|
-      include File.basename(file, '.rb').classify.constantize
+  namespace "/api/v1" do
+    helpers do
+      Dir[File.join(settings.root, "app/{helpers}/*.rb")].each do  |file|
+        include File.basename(file, '.rb').classify.constantize
+      end
     end
-  end
-  Dir[File.join(settings.root, "app/{before_filters,controllers}/*.rb")].each do |file|
-    register File.basename(file, '.rb').classify.constantize
+    Dir[File.join(settings.root, "app/{before_filters,controllers}/*.rb")].each do |file|
+      register File.basename(file, '.rb').classify.constantize
+    end
   end
 end
 
