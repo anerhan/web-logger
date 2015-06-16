@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/anerhan/rspec_api_documentation.git
+  revision: a5db11b19b53053e3e92bbb41853d09a96945b3b
+  specs:
+    rspec_api_documentation (4.4.0)
+      activesupport (>= 3.0.0)
+      json (~> 1.4, >= 1.4.6)
+      mustache (~> 0.99, >= 0.99.4)
+      rspec (>= 3.0.0)
+
+GIT
   remote: git://github.com/anerhan/sinatra-active-model-serializers.git
   revision: f673229337a7e6238536e6563b68522c0d317d6a
   specs:
@@ -102,6 +112,7 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.11.1)
+    mustache (0.99.8)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     optionable (0.2.0)
@@ -215,6 +226,7 @@ DEPENDENCIES
   rake
   rerun
   rspec
+  rspec_api_documentation (~> 4.4.0)!
   settingslogic
   sinatra
   sinatra-active-model-serializers!

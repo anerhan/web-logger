@@ -2,12 +2,15 @@ class User
   include Base
   include Exts::Authenticable
 
+  POSITIONS = { 0 => 'user', 3 => 'admin' }
+
   field :first_name,  type: String,   default: nil
   field :last_name,   type: String,   default: nil
   field :email,       type: String,   default: nil
   field :gender,      type: Integer,  default: nil
+  field :position,    type: Integer,  default: 0
 
-  belongs_to :group
+  validates :position,inclusion: { in: POSITIONS.keys }
 
   validates :email,
             length:     { minimum: 6 },
@@ -18,6 +21,14 @@ class User
 
   def full_name
     ["#{first_name} #{last_name}", email].compact.reject(&:blank?).first
+  end
+
+  def admin?
+    position == 3
+  end
+
+  def user?
+    position == 0
   end
 
   class << self

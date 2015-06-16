@@ -39,6 +39,7 @@ group :test do
   gem 'fakeweb'
   gem 'database_cleaner'
   gem 'timecop'
+  gem 'rspec_api_documentation','~> 4.4.0', github: 'anerhan/rspec_api_documentation'
 end
 
 group :production do

@@ -5,6 +5,7 @@ require 'mongoid-rspec'
 require 'sinatra/base'
 require 'rack/test'
 require File.join(File.dirname(__FILE__), '../application')
+require "rspec_api_documentation/dsl"
 
 FactoryGirl.find_definitions
 # FakeWeb.allow_net_connect = false
@@ -45,4 +46,11 @@ RSpec.configure do |config|
   config.after(:each) do
     Timecop.return
   end
+end
+
+RspecApiDocumentation.configure do |config|
+  config.docs_dir = Pathname.new(App.settings.root).join("doc")
+  config.app = App
+  config.api_name = "Web Logger"
+  config.format = :html
 end

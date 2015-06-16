@@ -7,7 +7,12 @@ class Ability
     alias_action :list, :view, to: :read
 
     return unless (@current_user = user)
-
-    can :manage, User
+    if user.admin?
+      can :manage, all
+    elsif user.user?
+      can :manage, User, id: user.id
+      can :read,   Stage
+      can :read,   Project
+    end
   end
 end
