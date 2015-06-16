@@ -11,7 +11,7 @@ module UsersController
     end
 
     app.post "/users.json" do
-      # authorize!(:create, User)
+      authorize!(:create, User)
       serialize_and_response User.new(params[:user]) do |object|
         object.save
       end
