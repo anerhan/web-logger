@@ -1,1 +1,1 @@
-// alert('Achtung');
+//= require bootstrap.min

@@ -31,7 +31,7 @@ class App < Sinatra::Base
   set :views, Proc.new { File.join(root, "app/views") }
 
   set :assets_precompile, %w(application.js application.css *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
-  set :assets_prefix, %w(app/assets app/vendor/assets)
+  set :assets_prefix, %w(app/assets vendor/assets)
   set :assets_host, '<id>.example.org'
   # set :assets_protocol, :http
   set :assets_css_compressor, :sass
