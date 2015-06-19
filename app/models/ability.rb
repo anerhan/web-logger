@@ -11,8 +11,8 @@ class Ability
       can :manage, :all
     elsif user.user?
       can :manage, User, id: user.id
-      can :read,   Stage
-      can :read,   Project
+      can :read, Stage
+      can :read, Project
     end
   end
 end

@@ -4,7 +4,7 @@ resource "Authorization /api/v1/access_tokens (AccessTokensController)" do
   let(:user)              { create :user }
   let(:user_access_token) { create :access_token, user: user }
 
-  post "/api/v1/access_tokens.json" do
+  post "/api/v1/access_tokens" do
 
     let(:access_token) { { tmp_token: 'FeGeneratedToken' } }
 
@@ -22,7 +22,7 @@ resource "Authorization /api/v1/access_tokens (AccessTokensController)" do
     end
   end
 
-  get "/api/v1/access_tokens/:id.json" do
+  get "/api/v1/access_tokens/:id" do
 
     let(:id) { user_access_token.tmp_token }
 

@@ -15,7 +15,7 @@ module AbilitiesHelper
       email, password = extract_auth_data
       User.basic_auth(email, password)
     else
-      User.new
+      User.first || User.new
     end
   end
 
