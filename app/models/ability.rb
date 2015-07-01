@@ -10,7 +10,8 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.user?
-      can :manage, User, id: user.id
+      # can :manage, User, id: user.id
+      can :manage, User
       can :read, Stage
       can :read, Project
     end

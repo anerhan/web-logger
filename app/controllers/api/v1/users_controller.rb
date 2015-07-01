@@ -6,12 +6,12 @@ module UsersController
     end
 
     app.get "/users/:id" do
-      # load_and_authorize! User
+      load_and_authorize! User
       serialize_and_response User.find(params[:id])
     end
 
     app.post "/users" do
-      authorize!(:create, User)
+      authorize! :create, User
       serialize_and_response User.new(params[:user]) do |object|
         object.save
       end

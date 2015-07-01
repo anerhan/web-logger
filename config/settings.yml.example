@@ -14,9 +14,14 @@ mongoid:
     raise_not_found_error: false
 auth:
   token_expired_period: <%= 1.month %>
+
 services:
-  - url:  'http://localhost:3000'
-    name: 'accounts-api'
+  - name: 'users-and-groups-api'
+  - paths:
+    - /app/var/rails/uk/fw2-users-and-groups-api/development/shared/log
+    - /app/var/rails/uk/fw2-users-and-groups-api/production/shared/log
+
+
   - url: 'http://localhost:3001'
     name: 'messaging-api'
   - url: 'http://localhost:3002'
