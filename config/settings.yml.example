@@ -5,7 +5,7 @@ tire:
   url: http://127.0.0.1:9200
   index_name: account-api_<%= Sinatra::Application.environment %>
 mongoid:
-  sessionse:
+  sessions:
     default:
       database: accounts-api_<%= Sinatra::Application.environment %>
       hosts:
