@@ -1,13 +1,13 @@
 redis:
   location: '127.0.0.1:6379/<%= Sinatra::Application.environment %>'
-  namespace: 'namespace'
+  namespace: 'web-logger'
 tire:
   url: http://127.0.0.1:9200
-  index_name: account-api_<%= Sinatra::Application.environment %>
+  index_name: web-logger_<%= Sinatra::Application.environment %>
 mongoid:
   sessions:
     default:
-      database: accounts-api_<%= Sinatra::Application.environment %>
+      database: web-logger_<%= Sinatra::Application.environment %>
       hosts:
         - localhost:27017
   options:
@@ -20,8 +20,6 @@ services:
   - paths:
     - /app/var/rails/uk/fw2-users-and-groups-api/development/shared/log
     - /app/var/rails/uk/fw2-users-and-groups-api/production/shared/log
-
-
   - url: 'http://localhost:3001'
     name: 'messaging-api'
   - url: 'http://localhost:3002'
